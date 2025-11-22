@@ -5,5 +5,5 @@ const bookingModel = require('./booking.model');
 module.exports = {
   eventModel,
   seatAvailabilityModel,
-  bookingModel
+  bookingModel,
 };

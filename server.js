@@ -4,13 +4,13 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const connectDB = require('./config/database');
 const routes = require('./src/routes/index');
-const CronJobs = require('./middleware/crons')
+const CronJobs = require('./middleware/crons');
 
 class Server {
   constructor() {
     this.app = express();
     this.PORT = process.env.PORT;
-    this.routes = routes
+    this.routes = routes;
   }
 
   setupMiddlewares() {
@@ -25,25 +25,27 @@ class Server {
     const limiter = rateLimit({
       windowMs: 15 * 60 * 1000, // 15 minutes
       max: 100, // Limit each IP to 100 requests per windowMs
-      message: 'Too many requests from this IP, please try again later.'
+      message: 'Too many requests from this IP, please try again later.',
     });
     this.app.use(limiter);
 
-     // Global error handling middleware
+    // Global error handling middleware
     this.app.use((err, req, res, next) => {
       console.error('Error:', err.stack);
-      res.status(500).json({ success: false, message: 'Something went wrong!' });
+      res
+        .status(500)
+        .json({ success: false, message: 'Something went wrong!' });
     });
   }
 
   setupRoutes() {
     this.app.use('/server/api', routes);
 
-     // Handle unknown API routes
+    // Handle unknown API routes
     this.app.all(/(.*)/, (req, res) => {
       res.status(404).json({
         success: false,
-        message: `Route ${req.originalUrl} not found`
+        message: `Route ${req.originalUrl} not found`,
       });
     });
   }
@@ -68,7 +70,7 @@ class Server {
 
 // Instantiate and run the server
 const server = new Server();
-server.run().catch((error) => {
+server.run().catch(error => {
   console.error('Failed to start server:', error);
   process.exit(1);
 });

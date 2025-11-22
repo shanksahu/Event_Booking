@@ -1,24 +1,25 @@
-const { body, param} = require('express-validator');
-
+const { body, param } = require('express-validator');
 
 const eventId = [
-body('eventId')
+  body('eventId')
     .isString()
     .isLength({ min: 24, max: 24 })
     .isHexadecimal()
-    .withMessage('Each eventId must be a valid 24-character hexadecimal string'),
-]
+    .withMessage(
+      'Each eventId must be a valid 24-character hexadecimal string'
+    ),
+];
 // Validation for holding seats
 const holdSeatsValidation = [
   ...eventId,
   body('seatIds')
-    .isArray({ min: 1, max:5 })
+    .isArray({ min: 1, max: 5 })
     .withMessage('seat must not be empty and max 5 seats allowed to book'),
   body('seatIds.*')
     .isString()
     .isLength({ min: 24, max: 24 })
     .isHexadecimal()
-    .withMessage('Each seatId must be a valid 24-character hexadecimal string')
+    .withMessage('Each seatId must be a valid 24-character hexadecimal string'),
 ];
 
 // Validation for confirming seats
@@ -45,12 +46,14 @@ const cancelSeatsValidation = [
     .isString()
     .isLength({ min: 24, max: 24 })
     .isHexadecimal()
-    .withMessage('Each bookingId must be a valid 24-character hexadecimal string'),
-]
+    .withMessage(
+      'Each bookingId must be a valid 24-character hexadecimal string'
+    ),
+];
 
 module.exports = {
   holdSeatsValidation,
   confirmSeatsValidation,
   cancelSeatsValidation,
-  getBooking
+  getBooking,
 };
