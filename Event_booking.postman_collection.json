@@ -1,0 +1,348 @@
+{
+	"info": {
+		"_postman_id": "4e51657d-0a65-4832-9a12-3b5e5dd1861b",
+		"name": "Event_booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18684684"
+	},
+	"item": [
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "Create Event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"eventName\": \"Tech Conference 2025\",\r\n  \"eventDate\": \"2025-12-18\",\r\n  \"location\": \"Bangalore International Exhibition Center\",\r\n  \"totalSeats\": 150,\r\n  \"bookingPrice\": 999\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Event List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event?pageNo=1&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Event",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"eventName\": \"Tech Conference 2025\",\r\n  \"eventDate\": \"2025-11-22\",\r\n  \"location\": \"Bangalore International Exhibition Center\",\r\n  \"bookingPrice\": 1299\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6920c9ca17d6ae3ac817f5f7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Event",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "69206da7d45ce36b0d4ae777"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Event",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "69206da7d45ce36b0d4ae777"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seats",
+			"item": [
+				{
+					"name": "Seat list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/event?pageNo=1&limit=0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"event"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Hold seat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"seatIds\":[\r\n\r\n    ],\r\n    \"eventId\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/booking/held",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"booking",
+								"held"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book seats",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"holdId\":\"6920c2d7a8558703acbe8920\",\r\n    \"eventId\":\"6920818c345a86ee86350a02\",\r\n    \"userName\":\"Shashank\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/booking/confirmed",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"booking",
+								"confirmed"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel booking",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"holdIds\":[\r\n\r\n    ],\r\n    \"eventId\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/booking/cancel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"booking",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My Booking",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"holdIds\":[\r\n\r\n    ],\r\n    \"eventId\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/booking/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"booking",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "69219ef3612e5a33679a917e"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

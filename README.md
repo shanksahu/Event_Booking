@@ -4,3 +4,5 @@
 
 Node version: 18
 MongoDB replica set enable
+
+postman baseUrl : http://localhost:3000/server/api
