@@ -1,2 +1,5 @@
 # Event_Booking
-"Event management system with seat booking: create, update, delete, and list events; automatically generate seats; book or cancel seats by seat number/ID; view personal bookings."
+"Event management system with seat booking: create, update, delete, and list events; automatically generate seats; book or cancel seats; view personal bookings."
+
+Node version: 18
+MongoDB replica set enable
