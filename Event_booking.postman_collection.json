@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"eventName\": \"Tech Conference 2025\",\r\n  \"eventDate\": \"2025-12-18\",\r\n  \"location\": \"Bangalore International Exhibition Center\",\r\n  \"totalSeats\": 150,\r\n  \"bookingPrice\": 999\r\n}",
+							"raw": "{\r\n  \"eventName\": \"Tech Conference 2025\",\r\n  \"eventDate\": \"2025-11-25\",\r\n  \"location\": \"Bangalore International Exhibition Center\",\r\n  \"totalSeats\": 111,\r\n  \"bookingAmount\": 1299\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -81,7 +81,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"eventName\": \"Tech Conference 2025\",\r\n  \"eventDate\": \"2025-11-22\",\r\n  \"location\": \"Bangalore International Exhibition Center\",\r\n  \"bookingPrice\": 1299\r\n}",
+							"raw": "{\r\n  \"eventName\": \"Tech Conference 2025\",\r\n  \"eventDate\": \"2025-11-23\",\r\n  \"location\": \"Bangalore International Exhibition Center\",\r\n  \"bookingAmount\": 99\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -100,7 +100,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "6920c9ca17d6ae3ac817f5f7"
+									"value": "69219aeebc48201ee16e613e"
 								}
 							]
 						}
@@ -136,7 +136,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "69206da7d45ce36b0d4ae777"
+									"value": "692405a8da437496ca58ba19"
 								}
 							]
 						}
@@ -169,7 +169,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "69206da7d45ce36b0d4ae777"
+									"value": "6920cca921ead8b8e343c778"
 								}
 							]
 						}
@@ -199,12 +199,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/event?pageNo=1&limit=0",
+							"raw": "{{baseUrl}}/seat/:eventId?pageNo=1&limit=10",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
-								"event"
+								"seat",
+								":eventId"
 							],
 							"query": [
 								{
@@ -213,7 +214,13 @@
 								},
 								{
 									"key": "limit",
-									"value": "0"
+									"value": "10"
+								}
+							],
+							"variable": [
+								{
+									"key": "eventId",
+									"value": "692405a8da437496ca58ba19"
 								}
 							]
 						}
@@ -232,7 +239,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"seatIds\":[\r\n\r\n    ],\r\n    \"eventId\":\"\"\r\n}",
+							"raw": "{\r\n    \"seatIds\":[\r\n        \"692405a8da437496ca58ba1d\",\r\n        \"692405a8da437496ca58ba1d\",\r\n        \"692405a8da437496ca58ba1d\"\r\n\r\n    ],\r\n    \"eventId\":\"692405a8da437496ca58ba19\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -240,13 +247,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseUrl}}/booking/held",
+							"raw": "{{baseUrl}}/booking/reserved",
 							"host": [
 								"{{baseUrl}}"
 							],
 							"path": [
 								"booking",
-								"held"
+								"reserved"
 							]
 						}
 					},
@@ -259,7 +266,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"holdId\":\"6920c2d7a8558703acbe8920\",\r\n    \"eventId\":\"6920818c345a86ee86350a02\",\r\n    \"userName\":\"Shashank\"\r\n}",
+							"raw": "{\r\n    \"holdId\":\"69240694da437496ca58baba\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -286,7 +293,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"holdIds\":[\r\n\r\n    ],\r\n    \"eventId\":\"\"\r\n}",
+							"raw": "{\r\n    \"bookingId\":\"69240694da437496ca58babd\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -316,7 +323,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"holdIds\":[\r\n\r\n    ],\r\n    \"eventId\":\"\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -335,7 +342,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "69219ef3612e5a33679a917e"
+									"value": "69240694da437496ca58babd"
 								}
 							]
 						}
